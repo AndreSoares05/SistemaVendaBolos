@@ -205,7 +205,7 @@ Escolha uma opção:
 
 
 
-🎬🔗 [Link youtube]([https://youtu.be/Hq6k5NQPaF8](https://youtu.be/9goh9xX4v5k)) 
+🎬🔗 [Link youtube](https://youtu.be/9goh9xX4v5k) 
 
 ---
 
