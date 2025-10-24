@@ -1,165 +1,130 @@
 SistemaVendasBolo
 
-Um sistema simples para gerenciamento de vendas de bolos, desenvolvido em Java, utilizando MongoDB Atlas para persistência de dados e Redis Cloud para cache do último bolo cadastrado.
+📌 Descrição do Projeto
 
-Estrutura do Projeto
+O SistemaVendasBolo é um sistema simples e robusto para gerenciamento de vendas de bolos, desenvolvido em Java, utilizando MongoDB Atlas para persistência de dados e Redis Cloud para cache do último bolo cadastrado. O sistema foi aprimorado para suportar categorias de bolos, oferecer melhor tratamento de erros e apresentar um menu interativo mais intuitivo.
+
+📂 Estrutura do Projeto
 
 SistemaVendasBolo/
 ├── src/
-│   ├── main/
-│   │   └── Main.java           # Classe principal com menu interativo
-│   ├── dao/
-│   │   ├── MongoDAO.java       # Classe de acesso ao MongoDB
-│   │   └── RedisDAO.java       # Classe de cache no Redis
-│   └── model/
-│       └── Bolo.java           # Classe modelo para objetos Bolo
+│   │   │   ├── main/
+│   │   │   │   └── Main.java          # Classe principal com menu interativo
+│   │   │   ├── dao/
+│   │   │   │   ├── MongoDAO.java      # Classe de acesso ao MongoDB
+│   │   │   │   └── RedisDAO.java      # Classe de cache no Redis
+│   │   │   └── model/
+│   │   │       └── Bolo.java          # Classe modelo para objetos Bolo
+│   │   └── resources/
+│   │       └── config.properties      # Configurações de conexão (MongoDB e Redis)
+└── README.md                              # Documentação do projeto
 
-Pacotes
+🗄️ Pacotes
 
 
 
 
 
-main: Contém a classe Main.java, responsável pelo menu interativo e integração com as camadas de acesso a dados (DAO).
+main: Contém Main.java, responsável pelo menu interativo e integração com as camadas de acesso a dados (DAO).
 
 
 
-dao: Contém classes responsáveis pela comunicação com o banco de dados (MongoDAO.java para MongoDB) e cache (RedisDAO.java para Redis).
+dao: Contém MongoDAO.java (comunicação com MongoDB Atlas) e RedisDAO.java (cache com Redis Cloud).
 
 
 
-model: Contém a classe Bolo.java, que representa a entidade Bolo com seus atributos.
+model: Contém Bolo.java, que representa a entidade Bolo com atributos como ID, nome, preço, descrição e categoria.
 
-Funcionalidades
+🌟 Funcionalidades
 
 
 
 
 
-Cadastrar Bolo: Adiciona um novo bolo ao MongoDB e armazena o último bolo cadastrado no Redis para acesso rápido.
+Cadastrar Bolo:
 
 
 
-Listar Bolos: Exibe todos os bolos cadastrados no MongoDB e o último bolo armazenado no cache Redis.
 
 
+Adiciona um novo bolo ao MongoDB com nome, preço, descrição e categoria.
 
-Atualizar Bolo: Permite atualizar o preço de um bolo existente com base em seu ID.
 
 
+Armazena o último bolo cadastrado no Redis para acesso rápido.
 
-Deletar Bolo: Remove um bolo do MongoDB pelo ID.
 
 
+Listar Bolos:
 
-Sair: Encerra a conexão com o Redis e finaliza o sistema.
 
-Tecnologias Utilizadas
 
 
 
+Exibe todos os bolos cadastrados no MongoDB, organizados por categoria.
 
 
-Java: Linguagem principal do projeto.
 
+Mostra o último bolo armazenado no cache Redis.
 
 
-MongoDB Atlas: Banco de dados NoSQL para persistência de dados.
 
+Atualizar Bolo:
 
 
-Redis Cloud: Sistema de cache para armazenar o último bolo cadastrado.
 
 
 
-Maven: Gerenciador de dependências (recomendado para configurar as bibliotecas do MongoDB e Redis).
+Permite atualizar nome, preço, descrição ou categoria de um bolo existente com base em seu ID.
 
-Pré-requisitos
 
 
+Deletar Bolo:
 
 
 
-JDK 11 ou superior
 
 
+Remove um bolo do MongoDB pelo ID.
 
-Conta no MongoDB Atlas com um cluster configurado
 
 
+Sair:
 
-Conta no Redis Cloud com instância ativa
 
 
 
-Maven para gerenciamento de dependências
 
-Configuração
+Encerra a conexão com MongoDB e Redis, finalizando o sistema.
 
+🚀 Tecnologias Utilizadas
 
 
 
 
-Configurar MongoDB Atlas:
 
+Java: Linguagem principal (JDK 11 ou superior).
 
 
 
+MongoDB Atlas: Banco de dados NoSQL para persistência.
 
-Crie um cluster no MongoDB Atlas.
 
 
+Redis Cloud: Sistema de cache para o último bolo cadastrado.
 
-Obtenha a string de conexão e configure-a em MongoDAO.java.
 
 
+Conta no MongoDB Atlas com um cluster configurado.
 
-Configurar Redis Cloud:
 
 
+Conta no Redis Cloud com instância ativa.
 
 
 
-Crie uma instância no Redis Cloud.
 
-
-
-Configure as credenciais (host, porta, senha) em RedisDAO.java.
-
-
-
-Dependências Maven: Adicione as dependências abaixo ao arquivo pom.xml:
-
-<dependencies>
-    <!-- MongoDB Java Driver -->
-    <dependency>
-        <groupId>org.mongodb</groupId>
-        <artifactId>mongodb-driver-sync</artifactId>
-        <version>4.11.0</version>
-    </dependency>
-    <!-- Jedis (Redis Client) -->
-    <dependency>
-        <groupId>redis.clients</groupId>
-        <artifactId>jedis</artifactId>
-        <version>5.1.0</version>
-    </dependency>
-</dependencies>
-
-
-
-Compilar e Executar:
-
-
-
-
-
-Compile o projeto: mvn clean install
-
-
-
-Execute a aplicação: java -cp target/SistemaVendasBolo.jar main.Main
-
-Uso
+🎮 Uso
 
 
 
@@ -175,7 +140,7 @@ Use o menu interativo para:
 
 
 
-Cadastrar um novo bolo (nome, preço, etc.).
+Cadastrar um novo bolo (nome, preço, descrição, categoria).
 
 
 
@@ -183,7 +148,7 @@ Listar todos os bolos e verificar o cache.
 
 
 
-Atualizar o preço de um bolo existente.
+Atualizar um bolo existente pelo ID.
 
 
 
@@ -193,16 +158,15 @@ Deletar um bolo pelo ID.
 
 Sair do sistema.
 
-Exemplo de Menu
+📜 Exemplo de Menu
 
-Sistema de Vendas de Bolos
+Sistema de Vendas de Bolos Plus
 1. Cadastrar Bolo
 2. Listar Bolos
 3. Atualizar Bolo
 4. Deletar Bolo
 5. Sair
-Escolha uma opção:
-
+Escolha uma opção: 
 
 
 🎬🔗 [Link youtube](https://youtu.be/9goh9xX4v5k) 
